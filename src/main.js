@@ -1,4 +1,4 @@
-module.exports = function check(str, bracketsConfig) {
+function check(str, bracketsConfig) {
   let stack = [];
   let obj = Object.fromEntries(bracketsConfig);
   let reverseObj = {};
@@ -23,9 +23,9 @@ module.exports = function check(str, bracketsConfig) {
     }
 
     let topElement = stack[stack.length - 1];     // (                {               }
-    // console.log(reverseObj);
-    // console.log(`Верхний элемент в стеке: ${topElement}`);
-    // console.log(`Значение ключа в объекте: ${reverseObj[currentSymbol]}`);
+    console.log(reverseObj);
+    console.log(`Верхний элемент в стеке: ${topElement}`);
+    console.log(`Значение ключа в объекте: ${reverseObj[currentSymbol]}`);
 
     if (reverseObj[currentSymbol] === topElement) {    //
       stack.pop();
@@ -36,3 +36,6 @@ module.exports = function check(str, bracketsConfig) {
 
   return stack.length === 0
 }
+
+console.log(check('({})', [['(', ')'], ['{', '}']]))
+
